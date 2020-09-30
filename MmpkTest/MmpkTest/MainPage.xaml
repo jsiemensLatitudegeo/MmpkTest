@@ -1,0 +1,17 @@
+﻿<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:MmpkTest" 
+       x:Class="MmpkTest.MainPage">
+    <TabBar>
+        <Tab Title="Map">
+            <ShellContent>
+                <local:MapPage x:Name="MapPage"/>
+            </ShellContent>
+        </Tab>
+        <Tab Title="Layers">
+            <ShellContent>
+                <local:LayersPage Map="{Binding Map}" BindingContext="{x:Reference MapPage}"/>
+            </ShellContent>
+        </Tab>
+    </TabBar>
+</Shell>

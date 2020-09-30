@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:MmpkTest"
+             x:Class="MmpkTest.LayersPage"
+             Title="Layers">
+    <ContentPage.Resources>
+        <local:LayerMarginConverter x:Key="LayerMarginConverter"></local:LayerMarginConverter>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="Collection" VerticalOptions="FillAndExpand" BackgroundColor="Transparent" ItemSelected="Collection_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="10" HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding Layer.Name}" VerticalOptions="Center" Margin="{Binding Ancestors, Converter={StaticResource LayerMarginConverter}}" HorizontalOptions="StartAndExpand" />
+                                <Switch IsToggled="{Binding Layer.IsVisible}" HorizontalOptions="End" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
