@@ -35,12 +35,6 @@ namespace MmpkTest
         private void UpdateMap()
         {
             Collection.ItemsSource = Map.AllLayers.SelectMany(x => CreateLayerModels(x, 0)).ToArray();
-            this.ForceLayout();
-        }
-
-        protected override void OnAppearing()
-        {
-            this.ForceLayout();
         }
 
         private static IEnumerable<LayerModel> CreateLayerModels(ILayerContent layer, int depth)
